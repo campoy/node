@@ -11,8 +11,8 @@ const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 
-const apiPath = path.resolve(__dirname, '..', '..', 'out', 'doc', 'api');
-const mdPath = path.resolve(__dirname, '..', '..', 'doc', 'api');
+const apiPath = path.resolve(__dirname,  '..', '..', 'out', 'doc', 'api');
+const mdPath = path.resolve(__dirname, '..', '..', 'doc','api');
 const allMD = fs.readdirSync(mdPath);
 const allDocs = fs.readdirSync(apiPath);
 assert.ok(allDocs.includes('index.html'));
