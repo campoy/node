@@ -5,7 +5,7 @@ if (cluster.isMaster) {
   const common = require('../common.js');
   const bench = common.createBenchmark(main, {
     workers: [1],
-    payload: ['string', 'object'],
+    payload: [ 'string', 'object'],
     sendsPerBroadcast: [1, 10],
     n: [1e5]
   });
@@ -36,6 +36,7 @@ if (cluster.isMaster) {
         bench.start();
         broadcast();
       }
+      
     }
 
     function broadcast() {
