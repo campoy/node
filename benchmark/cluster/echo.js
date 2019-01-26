@@ -64,6 +64,6 @@ if (cluster.isMaster) {
   }
 } else {
   process.on('message', function(msg) {
-    process.send(msg);
+  process.send(msg);
   });
 }
