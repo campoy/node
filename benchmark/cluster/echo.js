@@ -5,11 +5,12 @@ if (cluster.isMaster) {
   const common = require('../common.js');
   const bench = common.createBenchmark(main, {
     workers: [1],
-    payload: ['string', 'object'],
+    payload: [ 'string', 'object'],
     sendsPerBroadcast: [1, 10],
     n: [1e5]
   });
 
+  
   function main({ n, workers, sendsPerBroadcast, payload }) {
     const expectedPerBroadcast = sendsPerBroadcast * workers;
     var readies = 0;
@@ -36,9 +37,11 @@ if (cluster.isMaster) {
         bench.start();
         broadcast();
       }
+      
     }
 
-    function broadcast() {
+    function broadcast()
+    {
       var id;
       if (broadcasts++ === n) {
         bench.end(n);
@@ -62,6 +65,6 @@ if (cluster.isMaster) {
   }
 } else {
   process.on('message', function(msg) {
-    process.send(msg);
+  process.send(msg);
   });
 }
