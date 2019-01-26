@@ -39,7 +39,8 @@ if (cluster.isMaster) {
       
     }
 
-    function broadcast() {
+    function broadcast()
+    {
       var id;
       if (broadcasts++ === n) {
         bench.end(n);
